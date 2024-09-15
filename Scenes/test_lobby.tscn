@@ -1,0 +1,30 @@
+[gd_scene load_steps=7 format=3 uid="uid://dtkscx1snh0rq"]
+
+[ext_resource type="PackedScene" uid="uid://bya7lcplft6lu" path="res://Low Poly Furniture/Beds/Bed Double.fbx" id="1_owf48"]
+[ext_resource type="PackedScene" uid="uid://cimph0s1btlbl" path="res://Low Poly Furniture/Chairs/Chair A.fbx" id="2_7fmle"]
+[ext_resource type="PackedScene" uid="uid://bio4fnt41ldju" path="res://Low Poly Furniture/Chairs/Chair E.fbx" id="3_hmrew"]
+[ext_resource type="PackedScene" uid="uid://cxjc4uk3eyyv8" path="res://Low Poly Furniture/Drawers/Drawer A.fbx" id="4_fyp73"]
+[ext_resource type="PackedScene" uid="uid://bqf0ti0i6wqaw" path="res://Low Poly Furniture/Miscellaneous/Alarm Clock.fbx" id="5_swmk8"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_agm7e"]
+
+[node name="testLobby" type="Node3D"]
+
+[node name="floor" type="MeshInstance3D" parent="."]
+transform = Transform3D(50, 0, 0, 0, 0.5, 0, 0, 0, 50, 0, 0, 0)
+mesh = SubResource("BoxMesh_agm7e")
+
+[node name="Bed Double" parent="." instance=ExtResource("1_owf48")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.939274, 1.79011, -21.3181)
+
+[node name="Chair A" parent="." instance=ExtResource("2_7fmle")]
+transform = Transform3D(0.896045, 0, -0.443963, 0, 1, 0, 0.443963, 0, 0.896045, 6.1731, 2.20252, 4.67202)
+
+[node name="Chair E" parent="." instance=ExtResource("3_hmrew")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.233, 2.81722, 4.941)
+
+[node name="Drawer A" parent="." instance=ExtResource("4_fyp73")]
+transform = Transform3D(0.527949, 0, -0.849276, 0, 1, 0, 0.849276, 0, 0.527949, 14.1887, 2.426, -7.89407)
+
+[node name="Alarm Clock" parent="." instance=ExtResource("5_swmk8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.4213, 4.25774, -9.22229)
