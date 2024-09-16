@@ -1,3 +1,57 @@
-[gd_scene format=3 uid="uid://boguk2ht11714"]
+[gd_scene load_steps=7 format=3 uid="uid://boguk2ht11714"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_651ef"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_8x2bw"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qna8x"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_necqj"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_pch77"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ltuud"]
+radius = 0.567834
+height = 2.22079
 
 [node name="Node3D" type="Node3D"]
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="."]
+transform = Transform3D(100, 0, 0, 0, 10, 0, 0, 0, 100, 0, 0, 0)
+use_collision = true
+mesh = SubResource("BoxMesh_8x2bw")
+material = SubResource("StandardMaterial3D_qna8x")
+
+[node name="Player" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 13.0317, 0)
+script = ExtResource("1_651ef")
+
+[node name="Body Mesh" type="MeshInstance3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.99481, 0)
+mesh = SubResource("CapsuleMesh_necqj")
+
+[node name="RightEye" type="MeshInstance3D" parent="Player/Body Mesh"]
+transform = Transform3D(0.2, 0, 0, 0, -8.74229e-09, -0.2, 0, 0.2, -8.74228e-09, 0.188717, 0.44553, -0.337341)
+mesh = SubResource("CapsuleMesh_pch77")
+
+[node name="LeftEye" type="MeshInstance3D" parent="Player/Body Mesh"]
+transform = Transform3D(0.2, 0, 0, 0, -8.74229e-09, -0.2, 0, 0.2, -8.74228e-09, -0.207255, 0.44553, -0.308974)
+mesh = SubResource("CapsuleMesh_pch77")
+skeleton = NodePath("../RightEye")
+
+[node name="BodyCol" type="CollisionShape3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.99481, 0)
+shape = SubResource("CapsuleShape3D_ltuud")
+
+[node name="CamOrigin" type="Node3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.62281, 0)
+
+[node name="SpringArm3D" type="SpringArm3D" parent="Player/CamOrigin"]
+spring_length = 5.0
+margin = 0.5
+
+[node name="Camera3D" type="Camera3D" parent="Player/CamOrigin/SpringArm3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0236745, 0, 4.67257)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.00408406, 0.999992, 0, -0.999992, 0.00408406, 0, 20.5226, 0)
