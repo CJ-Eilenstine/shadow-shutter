@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://dtkscx1snh0rq"]
+[gd_scene load_steps=29 format=3 uid="uid://dtkscx1snh0rq"]
 
 [ext_resource type="PackedScene" uid="uid://cimph0s1btlbl" path="res://Low Poly Furniture/Chairs/Chair A.fbx" id="2_7fmle"]
 [ext_resource type="PackedScene" uid="uid://bio4fnt41ldju" path="res://Low Poly Furniture/Chairs/Chair E.fbx" id="3_hmrew"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://bqf0ti0i6wqaw" path="res://Low Poly Furniture/Miscellaneous/Alarm Clock.fbx" id="5_swmk8"]
 [ext_resource type="PackedScene" uid="uid://bnpb0wm5yhg7v" path="res://Low Poly Furniture/Electronics/TV B.fbx" id="6_1jd17"]
 [ext_resource type="PackedScene" uid="uid://b30wm758x70fo" path="res://Low Poly Furniture/Beds/Bunk Bed.fbx" id="6_4ghmn"]
-[ext_resource type="PackedScene" uid="uid://b2yly0msibmti" path="res://Low Poly Furniture/Tables/Rounded Table A.fbx" id="7_xyhbo"]
 [ext_resource type="PackedScene" uid="uid://b2wfgxhdm4bun" path="res://Low Poly Furniture/Sofas/Sofa D.fbx" id="8_0w3pv"]
 [ext_resource type="PackedScene" uid="uid://d4mquhj886ajr" path="res://Low Poly Furniture/Doors/Door B.fbx" id="9_uawai"]
 [ext_resource type="PackedScene" uid="uid://bitqncaw0l0cr" path="res://Low Poly Furniture/Tables/Desk.fbx" id="10_dgn6c"]
@@ -25,6 +24,9 @@
 [ext_resource type="PackedScene" uid="uid://buv2qk7wkxh5d" path="res://Low Poly Furniture/Kitchen/Toaster.fbx" id="23_1fcgj"]
 [ext_resource type="PackedScene" uid="uid://nbp105uinl1i" path="res://Low Poly Furniture/Kitchen/Microwave.fbx" id="24_acf2o"]
 [ext_resource type="PackedScene" uid="uid://djegks6flb7ey" path="res://Low Poly Furniture/Kitchen/Cupboard E.fbx" id="25_fns8r"]
+[ext_resource type="PackedScene" uid="uid://cdy1okwrtjf3" path="res://Low Poly Furniture/Miscellaneous/Books B.fbx" id="26_kev51"]
+[ext_resource type="PackedScene" uid="uid://dmi4a1jcixd2a" path="res://Low Poly Furniture/Tables/Table D.fbx" id="27_s0w5k"]
+[ext_resource type="PackedScene" uid="uid://btq8cb8sg46r0" path="res://Low Poly Furniture/Carpets/Carpet B.fbx" id="27_v1cqr"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_agm7e"]
 
@@ -98,19 +100,25 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.0599, 2.426, -22.7724)
 [node name="Alarm Clock" parent="Room" instance=ExtResource("5_swmk8")]
 transform = Transform3D(0.747961, 0, 0.663744, 0, 1, 0, -0.663744, 0, 0.747961, 17.1816, 4.24686, -23.8578)
 
+[node name="Books B" parent="Room" instance=ExtResource("26_kev51")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.6814, 4.55268, -23.9945)
+
 [node name="Living" type="Node3D" parent="."]
 
 [node name="Door B" parent="Living" instance=ExtResource("9_uawai")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -24.8026, 4.97372, 11.1761)
 
 [node name="Sofa D" parent="Living" instance=ExtResource("8_0w3pv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.88647, 1.76657, 5.07647)
-
-[node name="Rounded Table A" parent="Living" instance=ExtResource("7_xyhbo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.68896, 2.29582, 19.4233)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.37387, 1.76657, 5.07647)
 
 [node name="TV B" parent="Living" instance=ExtResource("6_1jd17")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 3.70322, 5.43654, 19.7108)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -8.45182, 4.59443, 20.7396)
 
 [node name="Chair A" parent="Living" instance=ExtResource("2_7fmle")]
-transform = Transform3D(0.896045, 0, -0.443963, 0, 1, 0, 0.443963, 0, 0.896045, 12.1894, 2.20252, 8.81202)
+transform = Transform3D(0.896045, 0, -0.443963, 0, 1, 0, 0.443963, 0, 0.896045, 1.36091, 2.20252, 8.81202)
+
+[node name="Carpet B" parent="Living" instance=ExtResource("27_v1cqr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.73056, 0.41402, 12.3028)
+
+[node name="Table D" parent="Living" instance=ExtResource("27_s0w5k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.0528, 1.60564, 20.8014)
