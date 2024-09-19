@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://dtkscx1snh0rq"]
+[gd_scene load_steps=35 format=3 uid="uid://dtkscx1snh0rq"]
 
 [ext_resource type="Texture2D" uid="uid://tq08f4hacjiy" path="res://Art/Textures/Lobby-Floor/square_tiles_02_diff_1k.png" id="1_lv5o3"]
 [ext_resource type="PackedScene" uid="uid://cimph0s1btlbl" path="res://Low Poly Furniture/Chairs/Chair A.fbx" id="2_7fmle"]
@@ -31,6 +31,7 @@
 [ext_resource type="PackedScene" uid="uid://cdy1okwrtjf3" path="res://Low Poly Furniture/Miscellaneous/Books B.fbx" id="26_kev51"]
 [ext_resource type="PackedScene" uid="uid://dmi4a1jcixd2a" path="res://Low Poly Furniture/Tables/Table D.fbx" id="27_s0w5k"]
 [ext_resource type="PackedScene" uid="uid://btq8cb8sg46r0" path="res://Low Poly Furniture/Carpets/Carpet B.fbx" id="27_v1cqr"]
+[ext_resource type="PackedScene" uid="uid://cpkemevaud5ci" path="res://Low Poly Furniture/Shelves/Shelf B.fbx" id="32_ge87d"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uwkrn"]
 albedo_texture = ExtResource("1_lv5o3")
@@ -136,3 +137,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.73056, 0.41402, 12.3028)
 
 [node name="Table D" parent="Living" instance=ExtResource("27_s0w5k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.0528, 1.60564, 20.8014)
+
+[node name="Shelf B" parent="." instance=ExtResource("32_ge87d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.82214, 5.4623, -23.3916)
