@@ -1,6 +1,10 @@
-[gd_scene load_steps=29 format=3 uid="uid://dtkscx1snh0rq"]
+[gd_scene load_steps=34 format=3 uid="uid://dtkscx1snh0rq"]
 
+[ext_resource type="Texture2D" uid="uid://tq08f4hacjiy" path="res://Art/Textures/Lobby-Floor/square_tiles_02_diff_1k.png" id="1_lv5o3"]
 [ext_resource type="PackedScene" uid="uid://cimph0s1btlbl" path="res://Low Poly Furniture/Chairs/Chair A.fbx" id="2_7fmle"]
+[ext_resource type="Texture2D" uid="uid://di4ila0jahy70" path="res://Art/Textures/Lobby-Floor/square_tiles_02_nor_gl_1k.png" id="2_lne7g"]
+[ext_resource type="Texture2D" uid="uid://brrsus72urrky" path="res://Art/Textures/Lobby-Floor/square_tiles_02_rough_1k.png" id="3_7hx5m"]
+[ext_resource type="Texture2D" uid="uid://c51tusmahp0dy" path="res://Art/Textures/Lobby-Floor/square_tiles_02_disp_1k.png" id="3_arvi6"]
 [ext_resource type="PackedScene" uid="uid://bio4fnt41ldju" path="res://Low Poly Furniture/Chairs/Chair E.fbx" id="3_hmrew"]
 [ext_resource type="PackedScene" uid="uid://cxjc4uk3eyyv8" path="res://Low Poly Furniture/Drawers/Drawer A.fbx" id="4_fyp73"]
 [ext_resource type="PackedScene" uid="uid://bqf0ti0i6wqaw" path="res://Low Poly Furniture/Miscellaneous/Alarm Clock.fbx" id="5_swmk8"]
@@ -28,12 +32,22 @@
 [ext_resource type="PackedScene" uid="uid://dmi4a1jcixd2a" path="res://Low Poly Furniture/Tables/Table D.fbx" id="27_s0w5k"]
 [ext_resource type="PackedScene" uid="uid://btq8cb8sg46r0" path="res://Low Poly Furniture/Carpets/Carpet B.fbx" id="27_v1cqr"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uwkrn"]
+albedo_texture = ExtResource("1_lv5o3")
+roughness_texture = ExtResource("3_7hx5m")
+normal_enabled = true
+normal_texture = ExtResource("2_lne7g")
+refraction_enabled = true
+refraction_texture = ExtResource("3_arvi6")
+uv1_scale = Vector3(20, 15, 1)
+
 [sub_resource type="BoxMesh" id="BoxMesh_agm7e"]
 
 [node name="testLobby" type="Node3D"]
 
 [node name="floor" type="MeshInstance3D" parent="."]
 transform = Transform3D(50, 0, 0, 0, 0.5, 0, 0, 0, 50, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_uwkrn")
 mesh = SubResource("BoxMesh_agm7e")
 
 [node name="Kitchen" type="Node3D" parent="."]
