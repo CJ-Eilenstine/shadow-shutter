@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://dtkscx1snh0rq"]
+[gd_scene load_steps=38 format=3 uid="uid://dtkscx1snh0rq"]
 
 [ext_resource type="Texture2D" uid="uid://tq08f4hacjiy" path="res://Art/Textures/Lobby-Floor/square_tiles_02_diff_1k.png" id="1_lv5o3"]
 [ext_resource type="PackedScene" uid="uid://cimph0s1btlbl" path="res://Low Poly Furniture/Chairs/Chair A.fbx" id="2_7fmle"]
@@ -32,6 +32,9 @@
 [ext_resource type="PackedScene" uid="uid://dmi4a1jcixd2a" path="res://Low Poly Furniture/Tables/Table D.fbx" id="27_s0w5k"]
 [ext_resource type="PackedScene" uid="uid://btq8cb8sg46r0" path="res://Low Poly Furniture/Carpets/Carpet B.fbx" id="27_v1cqr"]
 [ext_resource type="PackedScene" uid="uid://cpkemevaud5ci" path="res://Low Poly Furniture/Shelves/Shelf B.fbx" id="32_ge87d"]
+[ext_resource type="PackedScene" uid="uid://d3w6jjjo2voks" path="res://Low Poly Furniture/Bathroom/Bath.fbx" id="33_2i8vf"]
+[ext_resource type="PackedScene" uid="uid://284sfwb82lax" path="res://Low Poly Furniture/Bathroom/Sink.fbx" id="34_bcrvm"]
+[ext_resource type="PackedScene" uid="uid://bf852b8eg7jth" path="res://Low Poly Furniture/Bathroom/Toilet.fbx" id="35_tooyh"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uwkrn"]
 albedo_texture = ExtResource("1_lv5o3")
@@ -118,6 +121,9 @@ transform = Transform3D(0.747961, 0, 0.663744, 0, 1, 0, -0.663744, 0, 0.747961, 
 [node name="Books B" parent="Room" instance=ExtResource("26_kev51")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.6814, 4.55268, -23.9945)
 
+[node name="Shelf B" parent="Room" instance=ExtResource("32_ge87d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.82214, 5.4623, -23.3916)
+
 [node name="Living" type="Node3D" parent="."]
 
 [node name="Door B" parent="Living" instance=ExtResource("9_uawai")]
@@ -138,5 +144,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.73056, 0.41402, 12.3028)
 [node name="Table D" parent="Living" instance=ExtResource("27_s0w5k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.0528, 1.60564, 20.8014)
 
-[node name="Shelf B" parent="." instance=ExtResource("32_ge87d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.82214, 5.4623, -23.3916)
+[node name="Bathroom" type="Node3D" parent="."]
+
+[node name="Bath" parent="Bathroom" instance=ExtResource("33_2i8vf")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 23.0119, 3.42277, 24.1727)
+
+[node name="Sink" parent="Bathroom" instance=ExtResource("34_bcrvm")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 13.7316, 3.48919, 24.7249)
+
+[node name="Toilet" parent="Bathroom" instance=ExtResource("35_tooyh")]
+transform = Transform3D(-1.19574, 0, -8.92116e-08, 0, 0.839041, 0, 1.04535e-07, 0, -1.02046, 16.9379, 2.85729, 23.5003)
