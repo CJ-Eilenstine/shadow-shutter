@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=4 uid="uid://dtkscx1snh0rq"]
+[gd_scene load_steps=44 format=4 uid="uid://dtkscx1snh0rq"]
 
 [ext_resource type="Texture2D" uid="uid://tq08f4hacjiy" path="res://Art/Textures/Lobby-Floor/square_tiles_02_diff_1k.png" id="1_lv5o3"]
 [ext_resource type="PackedScene" uid="uid://cimph0s1btlbl" path="res://Low Poly Furniture/Chairs/Chair A.fbx" id="2_7fmle"]
@@ -77,6 +77,8 @@ _data = {
 "octree_size": Vector3(128, 128, 128),
 "to_cell_xform": Transform3D(2.43882, 0, 0, 0, 2.43882, 0, 0, 0, 2.43882, 62.5156, 35.7732, 64)
 }
+
+[sub_resource type="BoxMesh" id="BoxMesh_7gxuo"]
 
 [node name="testLobby" type="Node3D"]
 
@@ -158,7 +160,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.82214, 5.4623, -23.3916)
 [node name="Living" type="Node3D" parent="."]
 
 [node name="Door B" parent="Living" instance=ExtResource("9_uawai")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -24.8026, 4.97372, 11.1761)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -25.2895, 4.97372, 11.1761)
 
 [node name="Sofa D" parent="Living" instance=ExtResource("8_0w3pv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.37387, 1.76657, 5.07647)
@@ -189,12 +191,15 @@ transform = Transform3D(-1.19574, 0, -8.92116e-08, 0, 0.839041, 0, 1.04535e-07, 
 [node name="Ceiling Fan" parent="." instance=ExtResource("36_twwcj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 24.1791, 0)
 
-[node name="SpotLight3D" type="SpotLight3D" parent="Ceiling Fan"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -1.08956, 0)
-light_color = Color(0.94902, 0.945098, 0.627451, 1)
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Ceiling Fan"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -0.984659, 0)
+light_color = Color(1, 0.996078, 0.905882, 1)
+light_energy = 0.525
+light_indirect_energy = 0.5
 shadow_enabled = true
-spot_range = 27.0835
-spot_angle = 76.7322
+shadow_opacity = 0.75
+shadow_blur = 2.58
+sky_mode = 1
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_es6dw")
@@ -203,3 +208,33 @@ environment = SubResource("Environment_es6dw")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.576355, 10.9082, -1.29306)
 size = Vector3(51.267, 29.3364, 52.4843)
 data = SubResource("VoxelGIData_15xkr")
+
+[node name="walls" type="Node3D" parent="."]
+
+[node name="northW" type="MeshInstance3D" parent="walls"]
+transform = Transform3D(0.461, 0, 0, 0, 25.691, 0, 0, 0, 34, -25.2442, 13.0697, -8.49529)
+mesh = SubResource("BoxMesh_7gxuo")
+
+[node name="northW2" type="MeshInstance3D" parent="walls"]
+transform = Transform3D(0.461, 0, 0, 0, 25.691, 0, 0, 0, 12, -25.2442, 13.0697, 18.9647)
+mesh = SubResource("BoxMesh_7gxuo")
+
+[node name="northW3" type="MeshInstance3D" parent="walls"]
+transform = Transform3D(0.461, 0, 0, 0, 17, 0, 0, 0, 12, -25.2442, 18.9287, 10.4391)
+mesh = SubResource("BoxMesh_7gxuo")
+
+[node name="eastW" type="MeshInstance3D" parent="walls"]
+transform = Transform3D(-2.01509e-08, 0, -52, 0, 25.691, 0, 0.461, 0, -2.27299e-06, -0.28478, 13.0697, -25.2405)
+mesh = SubResource("BoxMesh_7gxuo")
+
+[node name="southW" type="MeshInstance3D" parent="walls"]
+transform = Transform3D(0.461, 0, 0, 0, 25.691, 0, 0, 0, 52, 25.2464, 13.0697, 0.558701)
+mesh = SubResource("BoxMesh_7gxuo")
+
+[node name="westW" type="MeshInstance3D" parent="walls"]
+transform = Transform3D(-2.01509e-08, 0, -52, 0, 25.691, 0, 0.461, 0, -2.27299e-06, -0.327977, 13.0697, 25.2527)
+mesh = SubResource("BoxMesh_7gxuo")
+
+[node name="ceiling" type="MeshInstance3D" parent="walls"]
+transform = Transform3D(5.04797e-05, 0.0379411, -52, 0.460997, 0.182976, 0.00582749, 0.00162219, -51.9997, -0.0379208, -0.327977, 26.0898, 0.741951)
+mesh = SubResource("BoxMesh_7gxuo")
