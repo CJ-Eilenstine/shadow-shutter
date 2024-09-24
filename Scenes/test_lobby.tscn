@@ -192,7 +192,7 @@ transform = Transform3D(-1.19574, 0, -8.92116e-08, 0, 0.839041, 0, 1.04535e-07, 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 24.1791, 0)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Ceiling Fan"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -0.984659, 0)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -0.825275, 0)
 light_color = Color(1, 0.996078, 0.905882, 1)
 light_energy = 0.525
 light_indirect_energy = 0.5
@@ -200,6 +200,18 @@ shadow_enabled = true
 shadow_opacity = 0.75
 shadow_blur = 2.58
 sky_mode = 1
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Ceiling Fan"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -1.1398, 0)
+light_color = Color(1, 0.858824, 0.862745, 1)
+light_energy = 5.13
+light_indirect_energy = 2.265
+light_size = 1.0
+light_specular = 1.609
+shadow_enabled = true
+shadow_blur = 1.39
+spot_range = 50.6007
+spot_angle = 68.5179
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_es6dw")
