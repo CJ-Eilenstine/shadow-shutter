@@ -4,6 +4,8 @@ extends CharacterBody3D
 @export var sens = 0.5
 @export var CameraViewport: SubViewport # Reference to the Camera's SubViewport
 @export var CameraPreview: TextureRect    # Reference to the TextureRect
+@onready var Camera = $CameraViewport/Camera # Assign the Camera node here
+@onready var camera_canvas_layer = $CameraCanvasLayer # Reference the CameraCanvasLayer node
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 var pictureCount = 1
@@ -51,8 +53,24 @@ func _input(event):
 		pivot.rotate_x(deg_to_rad(-event.relative.y * sens))
 		pivot.rotation.x = clamp(pivot.rotation.x, deg_to_rad(-90), deg_to_rad(45))
 		
-	if event.is_action_pressed("TakePicture"):
-		takePicture()
+		# Check for right mouse button press
+	if event.is_action_pressed("AimCamera"):
+		camera_canvas_layer.visible = true  # Show CameraCanvasLayer
+		
+		if event.is_action_pressed("TakePicture"):
+			takePicture()
+	else:
+		camera_canvas_layer.visible = false  # Hide CameraCanvasLayer
+		
+func _process(delta):
+	# Check for right mouse button press continuously
+	if Input.is_action_pressed("AimCamera"):
+		camera_canvas_layer.visible = true  # Show CameraCanvasLayer
+		# Check if the picture should be taken
+		if Input.is_action_pressed("TakePicture"):
+			takePicture()
+	else:
+		camera_canvas_layer.visible = false  # Hide CameraCanvasLayer
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -76,5 +94,12 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
-
+	
 	move_and_slide()
+	
+		# Check if the camera is valid before updating its position.
+	if Camera:
+		# Update the camera position to follow the player
+		Camera.global_transform.origin = global_transform.origin + Vector3(0, 2, -5)
+	else:
+		print("Camera node is not available.")
