@@ -1,0 +1,69 @@
+[gd_scene load_steps=5 format=3 uid="uid://boguk2ht11714"]
+
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_651ef"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_necqj"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_pch77"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ltuud"]
+radius = 0.567834
+height = 2.22079
+
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("CameraViewport", "CameraPreview")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 13.0317, 0)
+script = ExtResource("1_651ef")
+CameraViewport = NodePath("CameraViewport")
+CameraPreview = NodePath("CameraCanvasLayer/CameraPreview")
+
+[node name="Body Mesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.99481, 0)
+mesh = SubResource("CapsuleMesh_necqj")
+
+[node name="RightEye" type="MeshInstance3D" parent="Body Mesh"]
+transform = Transform3D(0.2, 0, 0, 0, -8.74229e-09, -0.2, 0, 0.2, -8.74228e-09, 0.188717, 0.44553, -0.337341)
+mesh = SubResource("CapsuleMesh_pch77")
+
+[node name="LeftEye" type="MeshInstance3D" parent="Body Mesh"]
+transform = Transform3D(0.2, 0, 0, 0, -8.74229e-09, -0.2, 0, 0.2, -8.74228e-09, -0.207255, 0.44553, -0.308974)
+mesh = SubResource("CapsuleMesh_pch77")
+skeleton = NodePath("../RightEye")
+
+[node name="BodyCol" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.99481, 0)
+shape = SubResource("CapsuleShape3D_ltuud")
+
+[node name="CamOrigin" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.62281, 0)
+
+[node name="SpringArm3D" type="SpringArm3D" parent="CamOrigin"]
+spring_length = 5.0
+margin = 0.5
+
+[node name="Camera3D" type="Camera3D" parent="CamOrigin/SpringArm3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0236745, 0, 4.67257)
+
+[node name="CameraViewport" type="SubViewport" parent="."]
+render_target_update_mode = 4
+
+[node name="Camera" type="Camera3D" parent="CameraViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.2465, -1.04011)
+current = true
+
+[node name="CameraCanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="CameraPreview" type="TextureRect" parent="CameraCanvasLayer"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -160.0
+offset_top = -134.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+expand_mode = 2
+
+[node name="Node3D" type="Node3D" parent="."]

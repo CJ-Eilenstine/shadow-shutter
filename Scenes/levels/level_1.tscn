@@ -1,0 +1,36 @@
+[gd_scene load_steps=9 format=3 uid="uid://dqbtae0m163ce"]
+
+[ext_resource type="Texture2D" uid="uid://tq08f4hacjiy" path="res://Art/Textures/Lobby-Floor/square_tiles_02_diff_1k.png" id="1_cpkrg"]
+[ext_resource type="Texture2D" uid="uid://di4ila0jahy70" path="res://Art/Textures/Lobby-Floor/square_tiles_02_nor_gl_1k.png" id="2_7emsd"]
+[ext_resource type="Texture2D" uid="uid://c51tusmahp0dy" path="res://Art/Textures/Lobby-Floor/square_tiles_02_disp_1k.png" id="3_bgt0w"]
+[ext_resource type="Texture2D" uid="uid://brrsus72urrky" path="res://Art/Textures/Lobby-Floor/square_tiles_02_rough_1k.png" id="4_77nr3"]
+[ext_resource type="PackedScene" uid="uid://boguk2ht11714" path="res://Scenes/characters/player.tscn" id="5_jg34r"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lfj3n"]
+albedo_texture = ExtResource("1_cpkrg")
+roughness_texture = ExtResource("4_77nr3")
+normal_enabled = true
+normal_texture = ExtResource("2_7emsd")
+refraction_enabled = true
+refraction_texture = ExtResource("3_bgt0w")
+uv1_scale = Vector3(20, 15, 10)
+
+[sub_resource type="BoxMesh" id="BoxMesh_cy5e0"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_2es1i"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[node name="level1" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(20, 0, 0, 0, 0.025, 0, 0, 0, 20, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_lfj3n")
+mesh = SubResource("BoxMesh_cy5e0")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_2es1i")
+
+[node name="Player" parent="." instance=ExtResource("5_jg34r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.98524, 8.07207, 0.521518)

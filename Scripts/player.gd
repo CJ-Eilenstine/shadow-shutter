@@ -6,7 +6,7 @@ extends CharacterBody3D
 @export var CameraPreview: TextureRect    # Reference to the TextureRect
 @onready var Camera = $CameraViewport/Camera # Assign the Camera node here
 @onready var camera_canvas_layer = $CameraCanvasLayer # Reference the CameraCanvasLayer node
-const SPEED = 5.0
+const SPEED = 15.0
 const JUMP_VELOCITY = 4.5
 var pictureCount = 1
 var pictureCapacity = 5
