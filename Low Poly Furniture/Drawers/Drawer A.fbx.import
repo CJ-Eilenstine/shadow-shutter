@@ -31,7 +31,34 @@ animation/trimming=true
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
-_subresources={}
+_subresources={
+"nodes": {
+"PATH:Drawer A": {
+"generate/physics": true
+},
+"PATH:Drawer A_001": {
+"generate/physics": true
+},
+"PATH:Drawer A_002": {
+"generate/physics": true
+},
+"PATH:Drawer A_003": {
+"generate/physics": true
+},
+"PATH:Drawer A_004": {
+"generate/physics": true
+},
+"PATH:Drawer A_005": {
+"generate/physics": true
+},
+"PATH:Drawer A_006": {
+"generate/physics": true
+},
+"PATH:Drawer A_007": {
+"generate/physics": true
+}
+}
+}
 fbx/importer=0
 fbx/allow_geometry_helper_nodes=false
 fbx/embedded_image_handling=1

@@ -31,7 +31,22 @@ animation/trimming=true
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
-_subresources={}
+_subresources={
+"nodes": {
+"PATH:Cupboard E": {
+"generate/physics": true
+},
+"PATH:Cupboard E_001": {
+"generate/physics": true
+},
+"PATH:Cupboard E_002": {
+"generate/physics": true
+},
+"PATH:Cupboard E_003": {
+"generate/physics": true
+}
+}
+}
 fbx/importer=0
 fbx/allow_geometry_helper_nodes=false
 fbx/embedded_image_handling=1
