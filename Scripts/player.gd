@@ -7,7 +7,7 @@ extends CharacterBody3D
 @onready var Camera = $CameraViewport/Camera # Assign the Camera node here
 @onready var camera_canvas_layer = $CameraCanvasLayer # Reference the CameraCanvasLayer node
 const SPEED = 15.0
-const JUMP_VELOCITY = 4.5
+const JUMP_VELOCITY = 15
 var pictureCount = 1
 var pictureCapacity = 5
 
@@ -75,7 +75,7 @@ func _process(delta):
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
-		velocity += get_gravity() * delta
+		velocity += get_gravity() * delta * 3
 
 	# Handle jump.
 	if Input.is_action_just_pressed("Jump") and is_on_floor():
@@ -85,7 +85,6 @@ func _physics_process(delta: float) -> void:
 		get_tree().quit()
 		
 	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir := Input.get_vector("Left", "Right", "Forward", "Backword")
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
@@ -100,6 +99,7 @@ func _physics_process(delta: float) -> void:
 		# Check if the camera is valid before updating its position.
 	if Camera:
 		# Update the camera position to follow the player
-		Camera.global_transform.origin = global_transform.origin + Vector3(0, 2, -5)
+		Camera.global_transform.origin = global_transform.origin + -global_transform.basis.z * 1 + Vector3(0, 2, 0)
+		Camera.global_rotation = global_rotation
 	else:
 		print("Camera node is not available.")

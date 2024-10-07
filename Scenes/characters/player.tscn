@@ -11,13 +11,12 @@ radius = 0.567834
 height = 2.22079
 
 [node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("CameraViewport", "CameraPreview")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 13.0317, 0)
+transform = Transform3D(0.995288, 0, 0, 0, 0.995288, 0, 0, 0, 0.995288, 0, 0, 0)
 script = ExtResource("1_651ef")
 CameraViewport = NodePath("CameraViewport")
 CameraPreview = NodePath("CameraCanvasLayer/CameraPreview")
 
 [node name="Body Mesh" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.99481, 0)
 mesh = SubResource("CapsuleMesh_necqj")
 
 [node name="RightEye" type="MeshInstance3D" parent="Body Mesh"]
@@ -30,24 +29,13 @@ mesh = SubResource("CapsuleMesh_pch77")
 skeleton = NodePath("../RightEye")
 
 [node name="BodyCol" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.99481, 0)
 shape = SubResource("CapsuleShape3D_ltuud")
-
-[node name="CamOrigin" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.62281, 0)
-
-[node name="SpringArm3D" type="SpringArm3D" parent="CamOrigin"]
-spring_length = 5.0
-margin = 0.5
-
-[node name="Camera3D" type="Camera3D" parent="CamOrigin/SpringArm3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0236745, 0, 4.67257)
 
 [node name="CameraViewport" type="SubViewport" parent="."]
 render_target_update_mode = 4
 
 [node name="Camera" type="Camera3D" parent="CameraViewport"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.2465, -1.04011)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.361318, -1.04)
 current = true
 
 [node name="CameraCanvasLayer" type="CanvasLayer" parent="."]
@@ -66,4 +54,12 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 expand_mode = 2
 
-[node name="Node3D" type="Node3D" parent="."]
+[node name="CamOrigin" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.01775, 0)
+
+[node name="SpringArm3D" type="SpringArm3D" parent="CamOrigin"]
+spring_length = 3.0
+margin = 0.5
+
+[node name="Camera3D" type="Camera3D" parent="CamOrigin/SpringArm3D"]
+transform = Transform3D(1.00473, 0, 0, 0, 1.00473, 0, 0, 0, 1.00473, 0, 0, 3)
