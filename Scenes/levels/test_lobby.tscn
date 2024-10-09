@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=4 uid="uid://dtkscx1snh0rq"]
+[gd_scene load_steps=55 format=4 uid="uid://dtkscx1snh0rq"]
 
 [ext_resource type="Texture2D" uid="uid://tq08f4hacjiy" path="res://Art/Textures/Lobby-Floor/square_tiles_02_diff_1k.png" id="1_gexy5"]
 [ext_resource type="Texture2D" uid="uid://di4ila0jahy70" path="res://Art/Textures/Lobby-Floor/square_tiles_02_nor_gl_1k.png" id="2_tjxm5"]
@@ -37,6 +37,7 @@
 [ext_resource type="PackedScene" uid="uid://bf852b8eg7jth" path="res://Low Poly Furniture/Bathroom/Toilet.fbx" id="35_n2sa2"]
 [ext_resource type="PackedScene" uid="uid://d06kekfarvfa8" path="res://Low Poly Furniture/Miscellaneous/Ceiling Fan.fbx" id="36_2a82q"]
 [ext_resource type="PackedScene" uid="uid://boguk2ht11714" path="res://Scenes/characters/player.tscn" id="37_xwu4w"]
+[ext_resource type="Script" path="res://Scripts/level_enter.gd" id="38_rrkfy"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uwkrn"]
 albedo_texture = ExtResource("1_gexy5")
@@ -104,6 +105,9 @@ data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_figqh"]
 data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_c3n4p"]
+size = Vector3(3.00787, 9.99435, 4.61319)
 
 [node name="testLobby" type="Node3D"]
 
@@ -317,4 +321,12 @@ mesh = SubResource("BoxMesh_7gxuo")
 shape = SubResource("ConcavePolygonShape3D_figqh")
 
 [node name="Player" parent="." instance=ExtResource("37_xwu4w")]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 5.88147, 3.99828, 1.55419)
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 4.84001, 23.8688, 0)
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.4944, 3.29031, 7.90683)
+script = ExtResource("38_rrkfy")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1419, 2.12776, 2.78706)
+shape = SubResource("BoxShape3D_c3n4p")

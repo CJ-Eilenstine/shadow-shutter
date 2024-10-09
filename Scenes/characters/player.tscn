@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://boguk2ht11714"]
+[gd_scene load_steps=6 format=3 uid="uid://boguk2ht11714"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_651ef"]
 
@@ -9,6 +9,8 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ltuud"]
 radius = 0.567834
 height = 2.22079
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_cvkdo"]
 
 [node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("CameraViewport", "CameraPreview")]
 transform = Transform3D(0.995288, 0, 0, 0, 0.995288, 0, 0, 0, 0.995288, 0, 0, 0)
@@ -63,3 +65,6 @@ margin = 0.5
 
 [node name="Camera3D" type="Camera3D" parent="CamOrigin/SpringArm3D"]
 transform = Transform3D(1.00473, 0, 0, 0, 1.00473, 0, 0, 0, 1.00473, 0, 0, 3)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_cvkdo")
