@@ -23,7 +23,7 @@ data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0
 [node name="level1" type="Node3D"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(20, 0, 0, 0, 0.025, 0, 0, 0, 20, 0, 0, 0)
+transform = Transform3D(50, 0, 0, 0, 0.025, 0, 0, 0, 50, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_lfj3n")
 mesh = SubResource("BoxMesh_cy5e0")
 
@@ -34,3 +34,8 @@ shape = SubResource("ConcavePolygonShape3D_2es1i")
 
 [node name="Player" parent="." instance=ExtResource("5_jg34r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.98524, 8.07207, 0.521518)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.33788, 1.55536, 6.03875)
+use_collision = true
+size = Vector3(12.2421, 3.84644, 1)
