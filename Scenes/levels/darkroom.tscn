@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bn1jsalc2t2ac"]
+
+[ext_resource type="Texture2D" uid="uid://cjrlftvnte6qh" path="res://textures/darkroomTile.jpg" id="1_m2al5"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nokr5"]
+albedo_texture = ExtResource("1_m2al5")
+uv1_triplanar = true
+
+[node name="Darkroom" type="Node3D"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(0.374948, 0, 0, 0, 0.0915606, 0, 0, 0, 0.374948, 0, 0, 0)
+size = Vector3(50, 1, 50)
+material = SubResource("StandardMaterial3D_nokr5")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1.91592, 0, 0, 0, 0.693084, -0.0534773, 1.00123, -9.07434)
+size = Vector3(20, 1, 1)
